@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "dc454bc0-cd45-4e55-b79c-8e40557dcb23",
+		"name": "JDS Backend App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5515740"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Hamada Anu\",\r\n    \"email\": \"hamada.anu@gmail.com\",\r\n    \"password\": \"Hamada123\",\r\n    \"nik\": \"0000000000000000\",\r\n    \"role\": \"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST3000}}/api/register",
+							"host": [
+								"{{HOST3000}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"\",\r\n    \"nik\": \"1234567890123456\",\r\n    \"password\": \"HamadaUser123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST3000}}/api/login",
+							"host": [
+								"{{HOST3000}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST3000}}/api/user/me",
+							"host": [
+								"{{HOST3000}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST3000}}/api/user/generate-password?nik=1234567890123456&role=user",
+							"host": [
+								"{{HOST3000}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"generate-password"
+							],
+							"query": [
+								{
+									"key": "nik",
+									"value": "1234567890123456"
+								},
+								{
+									"key": "role",
+									"value": "user"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST3000}}/api/product",
+							"host": [
+								"{{HOST3000}}"
+							],
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST3000}}/api/admin/product?product=Chips&sort=price_asc",
+							"host": [
+								"{{HOST3000}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"product"
+							],
+							"query": [
+								{
+									"key": "department",
+									"value": "games",
+									"disabled": true
+								},
+								{
+									"key": "product",
+									"value": "Chips"
+								},
+								{
+									"key": "price",
+									"value": "100",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "price_asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST3000}}/api/product/my-product",
+							"host": [
+								"{{HOST3000}}"
+							],
+							"path": [
+								"api",
+								"product",
+								"my-product"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
